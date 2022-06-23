@@ -19,7 +19,7 @@ mysql = MySQL(app)
 
 
 # http://localhost:5000/pythonlogin/ - the following will be our login page, which will use both GET and POST requests
-@app.route('/pythonlogin/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     # Output message if something goes wrong...
     msg = ''
@@ -50,7 +50,7 @@ def login():
 
 
 # http://localhost:5000/python/logout - this will be the logout page
-@app.route('/pythonlogin/logout')
+@app.route('/logout')
 def logout():
     # Remove session data, this will log the user out
     session.pop('loggedin', None)
@@ -61,7 +61,7 @@ def logout():
 
 
 # http://localhost:5000/pythinlogin/register - this will be the registration page, we need to use both GET and POST requests
-@app.route('/pythonlogin/register', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     # Output message if something goes wrong...
     msg = ''
@@ -97,7 +97,7 @@ def register():
 
 
 # http://localhost:5000/pythinlogin/home - this will be the home page, only accessible for loggedin users
-@app.route('/pythonlogin/home')
+@app.route('/home')
 def home():
     # Check if user is loggedin
     if 'loggedin' in session:
@@ -106,9 +106,29 @@ def home():
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
+# http://localhost:5000/pythinlogin/data_table - this will be the page with data table
+@app.route('/data_table')
+def data_table():
+    # Check if user is loggedin
+    if 'loggedin' in session:
+        # User is loggedin show them the home page
+        return render_template('data_table.html', username=session['username'])
+    # User is not loggedin redirect to login page
+    return redirect(url_for('login'))
+
+# http://localhost:5000/pythinlogin/home - this will be the home page, only accessible for loggedin users
+@app.route('/chart')
+def chart():
+    # Check if user is loggedin
+    if 'loggedin' in session:
+        # User is loggedin show them the home page
+        return render_template('chart.html', username=session['username'])
+    # User is not loggedin redirect to login page
+    return redirect(url_for('login'))
+
 
 # http://localhost:5000/pythinlogin/profile - this will be the profile page, only accessible for loggedin users
-@app.route('/pythonlogin/profile')
+@app.route('/profile')
 def profile():
     # Check if user is loggedin
     if 'loggedin' in session:
