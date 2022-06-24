@@ -250,84 +250,82 @@ def login():
     # plt.show()
     plt.savefig('./static/img/wynagrodzenie.png')
 
-# #Bezrobocie
-#     df = pd.read_csv('./static/RYNE.csv', sep=';', decimal=',')
-#
-#     df.head(8)
-#     # N1=N.copy()
-#
-#     df.dtypes
-#
-#     df.drop(df.columns[[0, 10]], axis=1, inplace=True)
-#
-#     # In[481]:
-#
-#     df.rename(columns={'ogółem;2018;[%]': 'ogółem_2018_[%]'
-#         , 'ogółem;2019;[%]': 'ogółem_2019_[%]'
-#         , 'ogółem;2020;[%]': 'ogółem_2020_[%]'
-#         , 'ogółem;2021;[%]': 'ogółem_2021_[%]'}, inplace=True)
-#
-#     df1 = df.copy()
-#     df.drop(0, axis=0, inplace=True)
-#
-#     values1 = df['ogółem_2018_[%]']
-#     values2 = df['ogółem_2019_[%]']
-#     values3 = df['ogółem_2020_[%]']
-#     values4 = df['ogółem_2021_[%]']
-#     lab = df['Nazwa']
-#     figure(figsize=(15, 6), dpi=70)
-#     width = 0.16
-#     index = np.arange(len(lab))
-#     plt.title('Stopień bezrobocia w województwach w latach 2018-2021')
-#     plt.bar(index - 0.25, values1, width, color='#33ff00', label='Rok_2018')
-#     plt.bar(index - 0.09, values2, width, color='#6600ff', label='Rok_2019')
-#     plt.bar(index + 0.08, values3, width, color='#9933cc', label='Rok_2020')
-#     plt.bar(index + 0.25, values4, width, label='Rok_2021')
-#     plt.xticks(ticks=range(16), labels=lab, rotation=50)
-#     plt.legend()
-#     # plt.show()
-#     # plt.savefig('./static/img/bezrobocie01.png')
-#
-#     df1 = df1.head(1)
-#
-#     values5 = df1['ogółem_2018_[%]']
-#     values6 = df1['ogółem_2019_[%]']
-#     values7 = df1['ogółem_2020_[%]']
-#     values8 = df1['ogółem_2021_[%]']
-#     lab2 = df1['Nazwa']
-#     figure(figsize=(8, 6), dpi=70)
-#     width = 0.05
-#     index = np.arange(len(lab2))
-#     plt.title('Stopień bezrobocia w Polsce w latach 2018-2021')
-#     plt.bar(index - 0.25, values5, width, color='#33ff00', label='Rok_2018')
-#     plt.bar(index - 0.08, values6, width, color='#6600ff', label='Rok_2019')
-#     plt.bar(index + 0.09, values7, width, color='#9933cc', label='Rok_2020')
-#     plt.bar(index + 0.25, values8, width, label='Rok_2021')
-#     plt.xticks(ticks=range(1), labels=lab2, rotation=0)
-#     plt.legend()
-#
-#     df = df.head(15)
-#
-#     MAX_19 = df[df["ogółem_2019_[%]"] == df['ogółem_2019_[%]'].max()]
-#     MIN_19 = df[df["ogółem_2019_[%]"] == df['ogółem_2019_[%]'].min()]
-#     AVG_19 = df[df["ogółem_2019_[%]"] > df['ogółem_2019_[%]'].mean()]
-#
-#     _MAX_name_19 = MAX_19['Nazwa'].to_string()
-#     _MIN_name_19 = MIN_19['Nazwa'].to_string()
-#     _AVG_name_19 = AVG_19['Nazwa'].to_string()
-#
-#     figure(figsize=(4, 3), dpi=70)
-#
-#     lab2 = [_MIN_name_19, _MAX_name_19]
-#     width = 0.1
-#     index = 0
-#     plt.title('Stopień bezrobocia min/max przy podziale na województwa w roku 2019')
-#     plt.bar(index, _MIN_19, width, color='#339933', label='Najmniejsze bezrobocie %')
-#     plt.bar(index + 1, _MAX_19, width, color='Yellow', label='Największe bezrobocie %')
-#     plt.xticks(ticks=range(2), labels=lab2, rotation=0)
-#     plt.legend()
-#     # plt.show()
-#     plt.savefig('./static/img/bezrobocie02.png')
+#Bezrobocie
+    df = pd.read_csv('./static/RYNE2.csv', sep=';', decimal=',')
+
+    df.head(8)
+
+    df.dtypes
+
+    df.drop(df.columns[[0, 10]], axis=1, inplace=True)
+
+    # In[481]:
+
+    df.rename(columns={'ogółem;2018;[%]': 'ogółem_2018_[%]'
+        , 'ogółem;2019;[%]': 'ogółem_2019_[%]'
+        , 'ogółem;2020;[%]': 'ogółem_2020_[%]'
+        , 'ogółem;2021;[%]': 'ogółem_2021_[%]'}, inplace=True)
+
+    df1 = df.copy()
+    df.drop(0, axis=0, inplace=True)
+
+    values1 = df['ogółem_2018_[%]']
+    values2 = df['ogółem_2019_[%]']
+    values3 = df['ogółem_2020_[%]']
+    values4 = df['ogółem_2021_[%]']
+    lab = df['Nazwa']
+    figure(figsize=(13, 8), dpi=72)
+    width = 0.16
+    index = np.arange(len(lab))
+    plt.title('Stopień bezrobocia w województwach w latach 2018-2021')
+    plt.bar(index - 0.25, values1, width, color='#33ff00', label='Rok_2018')
+    plt.bar(index - 0.09, values2, width, color='#6600ff', label='Rok_2019')
+    plt.bar(index + 0.08, values3, width, color='#9933cc', label='Rok_2020')
+    plt.bar(index + 0.25, values4, width, label='Rok_2021')
+    plt.xticks(ticks=range(16), labels=lab, rotation=50)
+    plt.legend()
+    # plt.show()
+    plt.savefig('./static/img/bezrobocie01.png')
+
+    # df1 = df1.head(1)
+    #
+    # values5 = df1['ogółem_2018_[%]']
+    # values6 = df1['ogółem_2019_[%]']
+    # values7 = df1['ogółem_2020_[%]']
+    # values8 = df1['ogółem_2021_[%]']
+    # lab2 = df1['Nazwa']
+    # figure(figsize=(8, 6), dpi=70)
+    # width = 0.05
+    # index = np.arange(len(lab2))
+    # plt.title('Stopień bezrobocia w Polsce w latach 2018-2021')
+    # plt.bar(index - 0.25, values5, width, color='#33ff00', label='Rok_2018')
+    # plt.bar(index - 0.08, values6, width, color='#6600ff', label='Rok_2019')
+    # plt.bar(index + 0.09, values7, width, color='#9933cc', label='Rok_2020')
+    # plt.bar(index + 0.25, values8, width, label='Rok_2021')
+    # plt.xticks(ticks=range(1), labels=lab2, rotation=0)
+    # plt.legend()
+    #
+    # df = df.head(15)
+    #
+    # MAX_19 = df[df["ogółem_2019_[%]"] == df['ogółem_2019_[%]'].max()]
+    # MIN_19 = df[df["ogółem_2019_[%]"] == df['ogółem_2019_[%]'].min()]
+    # AVG_19 = df[df["ogółem_2019_[%]"] > df['ogółem_2019_[%]'].mean()]
+    #
+    # _MAX_name_19 = MAX_19['Nazwa'].to_string()
+    # _MIN_name_19 = MIN_19['Nazwa'].to_string()
+    # _AVG_name_19 = AVG_19['Nazwa'].to_string()
+    #
+    # figure(figsize=(4, 3), dpi=70)
+    #
+    # lab2 = [_MIN_name_19, _MAX_name_19]
+    # width = 0.1
+    # index = 0
+    # plt.title('Stopień bezrobocia min/max przy podziale na województwa w roku 2019')
+    # plt.bar(index, _MIN_19, width, color='#339933', label='Najmniejsze bezrobocie %')
+    # plt.bar(index + 1, _MAX_19, width, color='Yellow', label='Największe bezrobocie %')
+    # plt.xticks(ticks=range(2), labels=lab2, rotation=0)
+    # plt.legend()
+    # plt.show()
 #======================================Service End=======================================
 
     return render_template('index.html', msg=msg)
@@ -391,24 +389,30 @@ def home():
     return redirect(url_for('login'))
 
 
-# http://localhost:5000/pythinlogin/data_table - this will be the page with data table
-@app.route('/data_table')
-def data_table():
+@app.route('/salary')
+def salary():
     # Check if user is loggedin
     if 'loggedin' in session:
         # User is loggedin show them the home page
-        return render_template('data_table.html', username=session['username'])
+        return render_template('chart_salary.html', username=session['username'])
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
-
-# http://localhost:5000/pythinlogin/home - this will be the home page, only accessible for loggedin users
-@app.route('/chart')
-def chart():
+@app.route('/population')
+def population():
     # Check if user is loggedin
     if 'loggedin' in session:
         # User is loggedin show them the home page
-        return render_template('chart.html', username=session['username'])
+        return render_template('chart_population.html', username=session['username'])
+    # User is not loggedin redirect to login page
+    return redirect(url_for('login'))
+
+@app.route('/unemployment')
+def unemployment():
+    # Check if user is loggedin
+    if 'loggedin' in session:
+        # User is loggedin show them the home page
+        return render_template('chart_unemployment.html', username=session['username'])
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
